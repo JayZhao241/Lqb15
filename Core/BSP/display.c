@@ -30,7 +30,7 @@ void LCD_Proc(void)
 		
 		if(B_f>=1000)
 		{
-			Ak=B_f*0.001;
+			Bk=B_f*0.001;
 			sprintf((char*)lcd_str, "     B=%.2fKHz       ", Bk);
 			LCD_DisplayStringLine(Line4, (uint8_t *)lcd_str);
 		}
@@ -77,7 +77,7 @@ void LCD_Proc(void)
 		
 		if(B_t>=1000)
 		{
-			Ak=B_t*0.001;
+			Bk=B_t*0.001;
 			sprintf((char*)lcd_str, "     B=%.2fmS       ", Bm);
 			LCD_DisplayStringLine(Line4, (uint8_t *)lcd_str);
 		}
