@@ -38,6 +38,15 @@ void LED_Proc(void)
 		LED_Disp(2,0);
 	}
 	
+	if(B_f>PH)
+	{
+		LED_Disp(3,1);
+	}
+	else
+	{
+		LED_Disp(3,0);
+	}
+	
 	if(NDA>=3||NDB>=3)
 	{
 		LED_Disp(8,1);

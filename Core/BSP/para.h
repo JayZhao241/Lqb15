@@ -3,7 +3,7 @@
 
 // LCD
 extern uint8_t lcd_state;
-extern uint16_t A_f,B_f, A_t, B_t;
+extern int16_t A_f,B_f, A_t, B_t;
 extern float Ak,Bk, Am, Bm;
 extern uint16_t PD,PH;
 extern int16_t PX;

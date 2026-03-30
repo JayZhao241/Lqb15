@@ -98,6 +98,7 @@ int main(void)
   MX_TIM2_Init();
   MX_TIM3_Init();
   MX_TIM4_Init();
+  MX_TIM7_Init();
   /* USER CODE BEGIN 2 */
 	
 	// LCD
@@ -107,6 +108,7 @@ int main(void)
 	
 	// TIM
 	HAL_TIM_Base_Start_IT(&htim4);
+	HAL_TIM_Base_Start_IT(&htim7);
 	HAL_TIM_IC_Start_IT(&htim2,TIM_CHANNEL_1);
 	HAL_TIM_IC_Start_IT(&htim3,TIM_CHANNEL_1);
 
@@ -178,8 +180,12 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 	if(htim->Instance==TIM4)
 	{
 		KEY_Time();
+		
+	}
+	if(htim->Instance==TIM7)
+	{
 		TIM_Proc();
-		 //Í»±äÅÐ¶Ï
+		 //Í»ï¿½ï¿½ï¿½Ð¶ï¿½
 		if(time_windows < 30)
 		{
 			time_windows ++;
@@ -206,7 +212,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 		}
 		else if(time_windows>=30)
 		{
-            //ÅÐ¶Ï×î´óÖµÓë×îÐ¡ÖµÖ®²îÊÇ·ñ´óÓÚPD
+            //ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½Ð¡ÖµÖ®ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½PD
 			if((freqA_Max - freqA_Min) > PD)
 			{
 				NDA++;
@@ -219,7 +225,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 			freqA_Min = 0;
 			freqB_Max = 0;
 			freqB_Min = 0;
-			time_windows = 0;  //Çå¿Õ´°¿ÚÖµ
+			time_windows = 0;  //ï¿½ï¿½Õ´ï¿½ï¿½ï¿½Öµ
 		}
 	}
 	
@@ -244,7 +250,6 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
 		B_f=1000000/ccl2+PX;
 		HAL_TIM_IC_Start_IT(&htim3,TIM_CHANNEL_1);
 	}
-	
 }
 
 /* USER CODE END 4 */

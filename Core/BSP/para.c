@@ -2,7 +2,7 @@
 
 // LCD
 uint8_t lcd_state=0;
-uint16_t A_f,B_f, A_t, B_t;
+int16_t A_f,B_f, A_t, B_t;
 float Ak,Bk, Am, Bm;
 uint16_t PD=1000,PH=5000;
 int16_t PX=0;
